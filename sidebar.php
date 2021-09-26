@@ -55,10 +55,18 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="hasil.php" class="nav-link">
+                <a href="penilaian_peserta.php" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
-                        Hasil
+                        Penilaian
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="penilaian.php" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Penilaian
                     </p>
                 </a>
             </li>

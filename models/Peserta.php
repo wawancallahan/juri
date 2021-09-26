@@ -30,6 +30,7 @@ class Peserta {
                 'hobi' => $item['hobi'],
                 'pekerjaan' => $item['pekerjaan'],
                 'foto' => $item['foto'],
+                'kategori_peserta_id' => $item['kategori_peserta_id'],
                 'kategori' => [
                     'nama' => $item['kategori_peserta_nama']
                 ],
