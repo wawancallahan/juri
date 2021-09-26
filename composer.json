@@ -1,0 +1,12 @@
+{
+    "name": "wawan/juri",
+    "type": "project",
+    "require": {
+        "rakit/validation": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Models\\": "models"
+        }
+    }
+}
