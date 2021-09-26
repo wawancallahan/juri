@@ -128,11 +128,11 @@ extract([
                                             <td><?php echo $pesertaItem['foto'] ?></td>
                                             <td><?php echo $pesertaItem['kategori']['nama'] ?? "" ?></td>
                                             <td>
-                                                <a href="edit_kategori_nilai.php?id=<?php echo $pesertaItem['id'] ?>" class="btn btn-warning btn-sm">
+                                                <a href="edit_peserta.php?id=<?php echo $pesertaItem['id'] ?>" class="btn btn-warning btn-sm">
                                                     <i class="fa fa-edit"></i> Edit
                                                 </a>
                                                 
-                                                <a href="hapus_kategori_nilai_proses.php?id=<?php echo $pesertaItem['id'] ?>" class="btn btn-danger btn-sm">
+                                                <a href="hapus_peserta_proses.php?id=<?php echo $pesertaItem['id'] ?>" class="btn btn-danger btn-sm">
                                                     <i class="fa fa-trash"></i> Hapus
                                                 </a>
                                             </td>
