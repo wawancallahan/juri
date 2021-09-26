@@ -8,8 +8,10 @@ require __DIR__ . '/vendor/autoload.php';
 use Rakit\Validation\Validator;
 use Models\Peserta;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+$id = null;
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id = input_form($_POST['id'] ?? null);
     $nama = input_form($_POST['nama'] ?? null);
     $tempat = input_form($_POST['tempat'] ?? null);
     $tanggal_lahir = input_form($_POST['tanggal_lahir'] ?? null);
@@ -63,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $newFileName = null;
 
-    if(isset($_FILES['foto'])){
+    if(isset($_FILES['foto']) && $_FILES['foto']['size'] != 0){
         $currentDirectory = getcwd();
         $uploadDirectory = "/files/";
     
@@ -73,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $fileSize = $_FILES['foto']['size'];
         $fileTmpName  = $_FILES['foto']['tmp_name'];
         $fileType = $_FILES['foto']['type'];
-        $fileExtension = strtolower(end(explode('.',$fileName)));
+        $fileExtension = strtolower(end(explode('.', $fileName)));
     
         $newFileName = round(microtime(true)) . '.' . $fileExtension;
     
@@ -82,7 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     $pesertaModel = new Peserta($pdo);
-    $item = $pesertaModel->create([
+    $pesertaItem = $pesertaModel->find($id);
+    $item = $pesertaModel->update([
         'nama' => $nama,
         'tempat' => $tempat,
         'tanggal_lahir' => $tanggal_lahir,
@@ -92,19 +95,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'pekerjaan' => $pekerjaan,
         'kategori_peserta_id' => $kategori_peserta_id,
         'foto' => $newFileName,
+        'id' => $id
     ]);
 
     switch ($item) {
         case 'success':
+            if ($newFileName !== null) {
+                $currentDirectory = getcwd();
+                $uploadDirectory = "/files/";
+                $uploadPath = $currentDirectory . $uploadDirectory . $pesertaItem['foto']; 
+    
+                if (file_exists($uploadPath)) {
+                    unlink($uploadPath);
+                }
+            }
+
             $_SESSION['type'] = 'success';
-            $_SESSION['message'] = 'Data Berhasil Ditambah';
+            $_SESSION['message'] = 'Data Berhasil Diedit';
 
             header('location: peserta.php');
             die();
             break;
         case 'fail':
             $_SESSION['type'] = 'danger';
-            $_SESSION['message'] = 'Data Gagal Ditambah';
+            $_SESSION['message'] = 'Data Gagal Diedit';
             break;
         case 'validation':
             $_SESSION['type'] = 'danger';
@@ -112,13 +126,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
     }
 
-    header('location: tambah_peserta.php');
+    header('location: edit_peserta.php?id=' . $id);
     die();
 }
 
 $_SESSION['type'] = 'danger';
 $_SESSION['message'] = 'Terjadi Kesalahan Proses Data';
 
-header('location: tambah_peserta.php');
+header('location: edit_peserta.php?id=' . $id);
 die();
-

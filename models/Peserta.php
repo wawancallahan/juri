@@ -128,7 +128,7 @@ class Peserta {
 
                 if ($foto !== "") {
 
-                    $query = "UPDATE user SET nama = ?, tempat = ?, tanggal_lahir = ?, umur = ?, alamat = ?, hobi = ?, pekerjaan = ?, foto = ?, kategori_peserta_id = ? WHERE id = ?";
+                    $query = "UPDATE peserta SET nama = ?, tempat = ?, tanggal_lahir = ?, umur = ?, alamat = ?, hobi = ?, pekerjaan = ?, foto = ?, kategori_peserta_id = ? WHERE id = ?";
                 
                     $statement = $this->pdo->prepare($query);
                     
@@ -145,7 +145,7 @@ class Peserta {
                         $id
                     ]);
                 } else {
-                    $query = "UPDATE user SET nama = ?, tempat = ?, tanggal_lahir = ?, umur = ?, alamat = ?, hobi = ?, pekerjaan = ?, kategori_peserta_id = ? WHERE id = ?";
+                    $query = "UPDATE peserta SET nama = ?, tempat = ?, tanggal_lahir = ?, umur = ?, alamat = ?, hobi = ?, pekerjaan = ?, kategori_peserta_id = ? WHERE id = ?";
                 
                     $statement = $this->pdo->prepare($query);
                     
@@ -168,6 +168,8 @@ class Peserta {
                
             }
         } catch (\Exception $e) {
+            \var_dump($e->getMessage());
+            die();
             return 'fail';
         }    
     }
