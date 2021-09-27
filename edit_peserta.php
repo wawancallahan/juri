@@ -9,10 +9,10 @@ require __DIR__ . '/middleware/hasAuth.php';
 use Models\Peserta;
 use Models\KategoriPeserta;
 
-$peserta = new Peserta($pdo);
+$pesertaModel = new Peserta($pdo);
 
 $id = input_form($_GET['id'] ?? null);
-$item = $peserta->find($id);
+$item = $pesertaModel->find($id);
 
 if ($item === null) {
     $_SESSION['type'] = 'danger';
@@ -29,6 +29,7 @@ $kategoriPesertaItems = $kategoriPesertaModels->index();
 ob_start();
 
 extract([
+    'item' => $item,
     'kategoriPesertaItems' => $kategoriPesertaItems
 ]);
 

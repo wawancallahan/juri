@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($item !== null) {
         $_SESSION['is_login'] = 1;
         $_SESSION['nama'] = $item['nama'];
+        $_SESSION['user_id'] = $item['id'];
         header('location: dashboard.php');
     } else {
         $_SESSION['type'] = 'danger';

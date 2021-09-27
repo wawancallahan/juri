@@ -8,10 +8,10 @@ require __DIR__ . '/middleware/hasAuth.php';
 
 use Models\User;
 
-$user = new User($pdo);
+$userModel = new User($pdo);
 
 $id = input_form($_GET['id'] ?? null);
-$item = $user->find($id);
+$item = $userModel->find($id);
 
 if ($item === null) {
     $_SESSION['type'] = 'danger';
@@ -24,6 +24,7 @@ if ($item === null) {
 ob_start();
 
 extract([
+    'item' => $item
 ]);
 
 ?>

@@ -24,6 +24,7 @@ if ($item === null) {
 ob_start();
 
 extract([
+    'item' => $item
 ]);
 
 ?>
