@@ -114,6 +114,7 @@ extract([
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>No. Peserta</th>
                                         <th>Nama</th>
                                         <th>TTL</th>
                                         <th>Umur</th>
@@ -129,6 +130,7 @@ extract([
                                     <?php foreach ($pesertaItems as $index => $pesertaItem) { ?>
                                         <tr>
                                             <td><?php echo $index + 1 ?></td>
+                                            <td><?php echo $pesertaItem['no_peserta'] ?></td>
                                             <td><?php echo $pesertaItem['nama'] ?></td>
                                             <td><?php echo $pesertaItem['tempat'] ?>, <?php echo $pesertaItem['tanggal_lahir'] ?></td>
                                             <td><?php echo $pesertaItem['umur'] ?></td>

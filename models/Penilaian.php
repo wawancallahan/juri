@@ -22,6 +22,29 @@ class Penilaian {
         return $result;
     }
 
+    public function findPenilaian($peserta_id, $user_id)
+    {
+        try {
+            if ($peserta_id !== "" && $user_id !== "") {
+
+                $query = "SELECT * FROM penilaian WHERE peserta_id = ? AND user_id = ?";
+                
+                $statement = $this->pdo->prepare($query);
+                
+                $statement->execute([
+                    $peserta_id,
+                    $user_id
+                ]);
+                return $statement->fetchAll(\PDO::FETCH_ASSOC);
+            } else {
+                return null;
+               
+            }
+        } catch (Exception $e) {
+            return null;
+        } 
+    }
+
     public function countPenilaian($peserta_id, $user_id)
     {
         try {
@@ -55,7 +78,7 @@ class Penilaian {
         try {
 
             $valuesQuery = array_map(function ($item) {
-                return ' VALUES(null, ?, ?, ?, ?) ';
+                return ' VALUES(null, ?, ?, ?, ?, ?) ';
             }, $data['penilaian']);
 
             $query = "INSERT INTO penilaian " . implode(",", $valuesQuery);

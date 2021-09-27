@@ -12,20 +12,21 @@ use Models\KategoriNilai;
 
 $pesertaModel = new Peserta($pdo);
 
-$id = input_form($_GET['id'] ?? null);
+$id = input_form($_GET['peserta_id'] ?? null);
+$user_id = input_form($_GET['user_id'] ?? null);
 $item = $pesertaModel->find($id);
 
 if ($item === null) {
     $_SESSION['type'] = 'danger';
     $_SESSION['message'] = 'Data Tidak Ditemukan';
 
-    header('location: penilaian.php');
+    header('location: penilaian_peserta_admin.php');
     die();
 }
 
 $penilaianModel = new Penilaian($pdo);
-$countPenilaian = $penilaianModel->countPenilaian($item['id'], $_SESSION['user_id']);
-$penilaianItems = $penilaianModel->findPenilaian($item['id'], $_SESSION['user_id']) ?? [];
+$countPenilaian = $penilaianModel->countPenilaian($item['id'], $user_id);
+$penilaianItems = $penilaianModel->findPenilaian($item['id'], $user_id) ?? [];
 
 $penilaianKategori = [];
 $totalPenilaian = 0;
@@ -209,7 +210,7 @@ extract([
                                                         <tr>
                                                             <td><?php echo $kategoriNilaiItem['nama'] ?></td>
                                                             <td>
-                                                                <input type="number" name="nilai[<?php echo $kategoriNilaiItem['id'] ?>]" class="form-control input-total" min="0" max="10" value="<?php echo $penilaianKategori[$kategoriNilaiItem['id']] ?? 0 ?>" required <?php echo $belumDinilai ? null : 'disabled' ?>>
+                                                                <input type="number" name="nilai[<?php echo $kategoriNilaiItem['id'] ?>]" class="form-control input-total" min="0" max="10" value="<?php echo $penilaianKategori[$kategoriNilaiItem['id']] ?? 0 ?>" disabled>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -220,18 +221,9 @@ extract([
                                                     <tr>
                                                         <td>Catatan</td>
                                                         <td>
-                                                            <textarea name="catatan" id="" class="form-control" rows="4" <?php echo $belumDinilai ? null : 'disabled' ?>><?php echo $catatan ?></textarea>
+                                                            <textarea name="catatan" id="" class="form-control" rows="4" disabled><?php echo $catatan ?></textarea>
                                                         </td>
                                                     </tr>
-                                                    <?php if ($belumDinilai) { ?>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <div class="text-right">
-                                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -259,26 +251,6 @@ extract([
     <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="assets/js/adminlte.js"></script>
-
-    <script>
-        $(function () {
-            $('.input-total').change(function (e) {
-                let el = $(this);
-
-                let total = 0;
-
-                $('.input-total').each(function(i, item) {
-                    let inputTotal = $(this).val() || 0;
-
-                    if (inputTotal && !isNaN(inputTotal)) {
-                        total += parseInt(inputTotal);
-                    }
-                });
-
-                $('.total').html(total);
-            });
-        });
-    </script>
 
 </body>
 </html>

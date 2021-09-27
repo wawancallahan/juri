@@ -31,6 +31,7 @@ class Peserta {
                 'pekerjaan' => $item['pekerjaan'],
                 'foto' => $item['foto'],
                 'kategori_peserta_id' => $item['kategori_peserta_id'],
+                'no_peserta' => $item['no_peserta'],
                 'kategori' => [
                     'nama' => $item['kategori_peserta_nama']
                 ],
@@ -62,6 +63,7 @@ class Peserta {
                 'pekerjaan' => $item['pekerjaan'],
                 'foto' => $item['foto'],
                 'kategori_peserta_id' => $item['kategori_peserta_id'],
+                'no_peserta' => $item['no_peserta'],
                 'kategori' => [
                     'nama' => $item['kategori_peserta_nama']
                 ],
@@ -83,12 +85,13 @@ class Peserta {
             $pekerjaan = $data['pekerjaan'] ?? "";
             $foto = $data['foto'] ?? "";
             $kategori_peserta_id = $data['kategori_peserta_id'] ?? "";
+            $no_peserta = $data['no_peserta'] ?? "0";
 
             if ($nama !== "" && $tempat !== "" && $tanggal_lahir !== "" && $umur !== ""
                 && $alamat !== "" && $hobi !== "" && $pekerjaan !== "" && $foto !== "" 
                 && $kategori_peserta_id !== "") {
 
-                $query = "INSERT INTO peserta VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $query = "INSERT INTO peserta VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 
                 $statement = $this->pdo->prepare($query);
                 
@@ -101,6 +104,7 @@ class Peserta {
                     $hobi,
                     $pekerjaan,
                     $foto,
+                    $no_peserta,
                     $kategori_peserta_id
                 ]);
 
@@ -154,13 +158,14 @@ class Peserta {
             $pekerjaan = $data['pekerjaan'] ?? "";
             $foto = $data['foto'] ?? "";
             $kategori_peserta_id = $data['kategori_peserta_id'] ?? "";
+            $no_peserta = $data['no_peserta'] ?? "0";
 
             if ($id !== "" && $nama !== "" && $tempat !== "" && $tanggal_lahir !== "" && $umur !== ""
                 && $alamat !== "" && $hobi !== "" && $pekerjaan !== "" && $kategori_peserta_id !== "") {
 
                 if ($foto !== "") {
 
-                    $query = "UPDATE peserta SET nama = ?, tempat = ?, tanggal_lahir = ?, umur = ?, alamat = ?, hobi = ?, pekerjaan = ?, foto = ?, kategori_peserta_id = ? WHERE id = ?";
+                    $query = "UPDATE peserta SET nama = ?, tempat = ?, tanggal_lahir = ?, umur = ?, alamat = ?, hobi = ?, pekerjaan = ?, foto = ?, no_peserta = ?, kategori_peserta_id = ? WHERE id = ?";
                 
                     $statement = $this->pdo->prepare($query);
                     
@@ -173,11 +178,12 @@ class Peserta {
                         $hobi,
                         $pekerjaan,
                         $foto,
+                        $no_peserta,
                         $kategori_peserta_id,
                         $id
                     ]);
                 } else {
-                    $query = "UPDATE peserta SET nama = ?, tempat = ?, tanggal_lahir = ?, umur = ?, alamat = ?, hobi = ?, pekerjaan = ?, kategori_peserta_id = ? WHERE id = ?";
+                    $query = "UPDATE peserta SET nama = ?, tempat = ?, tanggal_lahir = ?, umur = ?, alamat = ?, hobi = ?, pekerjaan = ?, no_peserta = ?, kategori_peserta_id = ? WHERE id = ?";
                 
                     $statement = $this->pdo->prepare($query);
                     
@@ -189,6 +195,7 @@ class Peserta {
                         $alamat,
                         $hobi,
                         $pekerjaan,
+                        $no_peserta,
                         $kategori_peserta_id,
                         $id
                     ]);
@@ -200,8 +207,6 @@ class Peserta {
                
             }
         } catch (\Exception $e) {
-            \var_dump($e->getMessage());
-            die();
             return 'fail';
         }    
     }

@@ -131,7 +131,7 @@ extract([
                                                         ?>
                                                             <img src="<?php echo $uploadDirectory . $pesertaItem['foto'] ?>" alt="" class="mb-2">
                                                         <?php } ?>
-                                                        <div class="nilai-peserta-nama"><?php echo $pesertaItem['nama'] ?></div>
+                                                        <div class="nilai-peserta-nama"><?php echo $pesertaItem['no_peserta'] ?>. <?php echo $pesertaItem['nama'] ?></div>
                                                     </div>
                                                 </a>
                                             </div>

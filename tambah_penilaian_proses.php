@@ -13,6 +13,7 @@ $id = null;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = input_form($_POST['id'] ?? null);
     $nilai = $_POST['nilai'] ?? null;
+    $catatan = $_POST['catatan'] ?? "";
 
     if ($nilai === null) {
         $_SESSION['type'] = 'danger';
@@ -31,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'peserta_id' => $id,
             'kategori_nilai_id' => $nilaiKey,
             'nilai' => $nilaiItem,
+            'catatan' => $catatan,
             'user_id' => $user_id
         ];
     }

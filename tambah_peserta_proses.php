@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $alamat = input_form($_POST['alamat'] ?? null);
     $hobi = input_form($_POST['hobi'] ?? null);
     $pekerjaan = input_form($_POST['pekerjaan'] ?? null);
+    $no_peserta = input_form($_POST['no_peserta'] ?? null);
     $kategori_peserta_id = input_form($_POST['kategori_peserta_id'] ?? null);
     $foto = $_FILES['foto'] ?? null;
 
@@ -31,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'hobi' => $hobi,
         'pekerjaan' => $pekerjaan,
         'kategori_peserta_id' => $kategori_peserta_id,
-        'foto' => $foto
+        'foto' => $foto,
+        'no_peserta' => $no_peserta
     ], [
         'nama' => 'required',
         'tempat' => 'required',
@@ -42,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'pekerjaan' => 'required',
         'kategori_peserta_id' => 'required',
         'foto' => 'required',
+        'no_peserta' => 'required|numeric'
     ], [
         'required' => ':attribute harus diisi',
         'foto.required' => 'Foto harus diisi',
@@ -92,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'pekerjaan' => $pekerjaan,
         'kategori_peserta_id' => $kategori_peserta_id,
         'foto' => $newFileName,
+        'no_peserta' => $no_peserta
     ]);
 
     switch ($item) {

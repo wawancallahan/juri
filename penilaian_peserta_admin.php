@@ -184,6 +184,10 @@ extract([
                                                                                 </td>
                                                                                 <td>
                                                                                     <?php if (isset($statusPenilaian[$userItem['id']]) && !empty($statusPenilaian[$userItem['id']])) { ?>
+                                                                                        <a href="lihat_penilaian_juri.php?user_id=<?php echo $userItem['id'] ?>&peserta_id=<?php echo $pesertaItem['id'] ?>" class="btn btn-info btn-sm">
+                                                                                            <i class="fa fa-eye"></i> Lihat
+                                                                                        </a>
+                                                                                        
                                                                                         <a href="hapus_penilaian_juri_proses.php?user_id=<?php echo $userItem['id'] ?>&peserta_id=<?php echo $pesertaItem['id'] ?>" class="btn btn-danger btn-sm">
                                                                                             <i class="fa fa-trash"></i> Hapus
                                                                                         </a>

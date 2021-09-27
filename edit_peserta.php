@@ -129,7 +129,12 @@ extract([
                             <input type="hidden" name="id" value="<?php echo $item['id'] ?>">
                             <div class="card-body">
 
-                            <div class="form-group">
+                                <div class="form-group">
+                                        <label>No. Peserta</label>
+                                    <input type="number" name="no_peserta" class="form-control" placeholder="No Peserta" min="0" value="<?php echo $item['no_peserta'] ?? 0 ?>" required>
+                                </div>
+
+                                <div class="form-group">
                                     <label>Nama</label>
                                     <input type="text" name="nama" class="form-control" placeholder="Nama" value="<?php echo $item['nama'] ?>" required>
                                 </div>
