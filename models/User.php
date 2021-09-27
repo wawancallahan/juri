@@ -53,6 +53,18 @@ class User {
         return $result;
     }
 
+    public function indexWhereRoleJuri () {
+        $query = "SELECT * FROM user where role = ?";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([
+            'juri'
+        ]);
+
+        $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
     public function create ($data)
     {
         try {

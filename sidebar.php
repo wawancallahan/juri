@@ -56,14 +56,14 @@
                         </p>
                     </a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="penilaian_peserta.php" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                <li class="nav-item">
+                    <a href="penilaian_peserta_admin.php" class="nav-link">
+                        <i class="nav-icon fas fa-th-list"></i>
                         <p>
                             Penilaian
                         </p>
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                     <a href="hasil_penilaian.php" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>

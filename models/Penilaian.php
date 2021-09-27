@@ -77,4 +77,22 @@ class Penilaian {
             return 'fail';
         }
     }
+
+    public function deletePenilaian($user_id, $peserta_id)
+    {
+        try {
+            $query = "DELETE FROM penilaian WHERE user_id = ? AND peserta_id = ?";
+            
+            $statement = $this->pdo->prepare($query);
+            
+            $execute = $statement->execute([
+                $user_id,
+                $peserta_id
+            ]);
+
+            return $execute;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
 }
