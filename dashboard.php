@@ -22,6 +22,16 @@ require __DIR__ . '/middleware/hasAuth.php';
     <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="assets/css/adminlte.min.css">
+    <style>
+        body {
+            background: url('assets/img/islamic_center.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100%;
+        }
+        .content-wrapper {
+            background-color: transparent;
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">

@@ -26,6 +26,12 @@ ob_start();
     <link rel="stylesheet" href="assets/css/adminlte.min.css">
 
     <style>
+        body {
+            background: url('assets/img/jembatan2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100%;
+            overflow: hidden;
+        }
         .separator {
             position: relative;
             text-align: center;
@@ -49,72 +55,54 @@ ob_start();
             padding: 0 1em;
             position: relative;
         }
+
+        .logo-login {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 150px;
+            margin-bottom: 30px;
+        }
     </style>
 </head>
 <body class="hold-transition login-page">
     <div class="login-box">
-    <div class="login-logo">
-        <a href="#"><b>Admin</b>LTE</a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="card">
-        <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
-
-            <?php require_once __DIR__ . '/components/flash.php' ?>
-
-            <form action="login_proses.php" method="post">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Username" name="username" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password" name="password" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                </div>
-
-                <div class="separator">
-                    <span class="separator-in">ATAU</span>
-                </div>
-
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
                 <div class="text-center">
-                    <p>Tidak Dapat Login? <br> Klik <a href="#" data-toggle="modal" data-target="#modal-help">Bantuan</a></p>
+                    <img src="assets/img/logo_duwis_smd.jpg" alt="" class="logo-login">
+                </div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="modal-help" data-backdrop="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">BANTUAN</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Jika anda tidak masuk ke dalam sistem, harap hubungi Elvanirwan, ST Selaku PPK dan RUK
-                                </div>
+                <?php require_once __DIR__ . '/components/flash.php' ?>
+
+                <form action="login_proses.php" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Username" name="username" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
 
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Password" name="password" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    </div>
+                </form>
+
+            </div>
+            <!-- /.login-card-body -->
         </div>
-        <!-- /.login-card-body -->
-    </div>
     </div>
     <!-- /.login-box -->
     <!-- jQuery -->
