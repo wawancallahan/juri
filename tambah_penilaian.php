@@ -61,6 +61,7 @@ extract([
     <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="assets/css/adminlte.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
     <style>
         body {
             background: url('assets/img/duta_ornament.jpg') no-repeat center center fixed;
