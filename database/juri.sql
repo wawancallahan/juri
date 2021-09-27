@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 01:29 PM
+-- Generation Time: Sep 27, 2021 at 01:56 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -71,6 +71,7 @@ CREATE TABLE `penilaian` (
   `peserta_id` int(11) NOT NULL,
   `kategori_nilai_id` int(11) NOT NULL,
   `nilai` int(11) NOT NULL,
+  `catatan` text NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -90,6 +91,7 @@ CREATE TABLE `peserta` (
   `hobi` varchar(255) NOT NULL,
   `pekerjaan` varchar(255) NOT NULL,
   `foto` text DEFAULT NULL,
+  `no_peserta` int(11) NOT NULL,
   `kategori_peserta_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -112,9 +114,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`, `role`) VALUES
-(1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(3, 'juri1', 'juri1', '202cb962ac59075b964b07152d234b70', 'juri'),
-(4, 'juri2', 'juri2', '202cb962ac59075b964b07152d234b70', 'juri');
+(1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -175,13 +175,13 @@ ALTER TABLE `kategori_peserta`
 -- AUTO_INCREMENT for table `penilaian`
 --
 ALTER TABLE `penilaian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
