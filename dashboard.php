@@ -56,7 +56,7 @@ require __DIR__ . '/middleware/hasAuth.php';
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">Duta</span>
             </a>
 
             <?php require './sidebar.php' ?>
@@ -69,12 +69,12 @@ require __DIR__ . '/middleware/hasAuth.php';
                 <div class="container-fluid">
                     <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0 text-white">Dashboard</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item text-white">Home</li>
+                            <li class="breadcrumb-item active text-white">Dashboard</li>
                         </ol>
                     </div><!-- /.col -->
                     </div><!-- /.row -->
