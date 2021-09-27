@@ -11,6 +11,17 @@ class Penilaian {
         $this->pdo = $pdo;
     }
 
+    public function index ()
+    {
+        $query = "SELECT * FROM penilaian";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+
+        $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
     public function countPenilaian($peserta_id, $user_id)
     {
         try {

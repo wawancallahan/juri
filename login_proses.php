@@ -15,9 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $item = $userModel->findUsernameAndPassword($username, $password);
 
     if ($item !== null) {
+        
         $_SESSION['is_login'] = 1;
         $_SESSION['nama'] = $item['nama'];
         $_SESSION['user_id'] = $item['id'];
+        $_SESSION['role'] = $item['role'];
         header('location: dashboard.php');
     } else {
         $_SESSION['type'] = 'danger';

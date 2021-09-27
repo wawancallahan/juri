@@ -40,6 +40,37 @@ class Peserta {
         return $result;
     }
 
+    public function indexWhereKategoriPeserta($kategori_peserta_id)
+    {
+        $query = "SELECT peserta.*, kategori_peserta.nama AS kategori_peserta_nama FROM peserta LEFT JOIN kategori_peserta ON kategori_peserta.id = peserta.kategori_peserta_id WHERE peserta.kategori_peserta_id = ?";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([
+            $kategori_peserta_id
+        ]);
+
+        $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        $result = array_map(function ($item) {
+            return [
+                'id' => $item['id'],
+                'nama' => $item['nama'],
+                'tempat' => $item['tempat'],
+                'tanggal_lahir' => $item['tanggal_lahir'],
+                'umur' => $item['umur'],
+                'alamat' => $item['alamat'],
+                'hobi' => $item['hobi'],
+                'pekerjaan' => $item['pekerjaan'],
+                'foto' => $item['foto'],
+                'kategori_peserta_id' => $item['kategori_peserta_id'],
+                'kategori' => [
+                    'nama' => $item['kategori_peserta_nama']
+                ],
+            ];
+        }, $result);
+
+        return $result;
+    }
+
     public function create ($data)
     {
         try {

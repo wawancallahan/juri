@@ -23,61 +23,74 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-database"></i>
-                    <p>
-                        Master Data
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="kategori_peserta.php" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Kategori Peserta</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="kategori_nilai.php" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Kategori Nilai</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a href="peserta.php" class="nav-link">
-                    <i class="nav-icon fas fa-user"></i>
-                    <p>
-                        Peserta
-                    </p>
-                </a>
-            </li>
-            <!-- <li class="nav-item">
-                <a href="penilaian_peserta.php" class="nav-link">
-                    <i class="nav-icon fas fa-th"></i>
-                    <p>
-                        Penilaian
-                    </p>
-                </a>
-            </li> -->
-            <li class="nav-item">
-                <a href="penilaian.php" class="nav-link">
-                    <i class="nav-icon fas fa-th"></i>
-                    <p>
-                        Penilaian
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="user.php" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
-                    <p>
-                        User
-                    </p>
-                </a>
-            </li>
+
+            <?php if ($_SESSION['role'] == 'admin')  { ?>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-database"></i>
+                        <p>
+                            Master Data
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="kategori_peserta.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kategori Peserta</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="kategori_nilai.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kategori Nilai</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="peserta.php" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Peserta
+                        </p>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="penilaian_peserta.php" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Penilaian
+                        </p>
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="hasil_penilaian.php" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Hasil
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="user.php" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            User
+                        </p>
+                    </a>
+                </li>
+            <?php } ?>
+            <?php if ($_SESSION['role'] == 'juri') { ?> 
+                <li class="nav-item">
+                    <a href="penilaian.php" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Penilaian
+                        </p>
+                    </a>
+                </li>
+            <?php } ?>
             <li class="nav-item">
                 <a href="logout.php" class="nav-link">
                     <i class="nav-icon fas fa-sign-out-alt"></i>
