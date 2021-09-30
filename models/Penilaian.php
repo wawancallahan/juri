@@ -78,10 +78,10 @@ class Penilaian {
         try {
 
             $valuesQuery = array_map(function ($item) {
-                return ' VALUES(null, ?, ?, ?, ?, ?) ';
+                return '(null, ?, ?, ?, ?, ?) ';
             }, $data['penilaian']);
 
-            $query = "INSERT INTO penilaian " . implode(",", $valuesQuery);
+            $query = "INSERT INTO penilaian VALUES " . implode(",", $valuesQuery);
             
             $statement = $this->pdo->prepare($query);
 
