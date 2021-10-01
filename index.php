@@ -29,21 +29,22 @@
     <div id="app">
         <section class="section">
             <div class="d-flex flex-wrap align-items-stretch">
-                <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
-                    <div class="p-4 m-3">
-                        <img src="assets/img/logo_duwis_smd.jpg" alt="logo" width="85" height="85" class="shadow-light rounded-circle mb-5 mt-2">
-                        <h4 class="text-dark font-weight-normal">Selamat Datang <br> di DUTA WISATA KALTIM</span></h4>
+                <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-black">
+                    <div class="p-2 m-1">
+                        <div>
+                            <img src="assets/img/wonderful-Indonesia-logo-color-underbase.png" alt="logo" width="120" class="mb-2">
+                        </div>
                         
                         <?php require_once __DIR__ . '/components/flash.php' ?>
                         
                         <form method="POST" action="login_proses.php">
                             <div class="form-group">
-                                <label for="">Username</label>
+                                <label for="" class="text-white">Username</label>
                                 <input type="text" class="form-control" placeholder="Username" name="username" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="">Password</label>
+                                <label for="" class="text-white">Password</label>
                                 <input type="password" class="form-control" placeholder="Password" name="password" required>
                             </div>
 
@@ -53,6 +54,11 @@
                                 </button>
                             </div>
                         </form>
+
+                        
+                        <div>
+                            <img src="assets/img/duta-text.png" alt="" width="100%" class="">
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom background-rotating" 
