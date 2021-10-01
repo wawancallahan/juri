@@ -33,6 +33,7 @@
                     <div class="p-2 m-1">
                         <div>
                             <img src="assets/img/wonderful-Indonesia-logo-color-underbase.png" alt="logo" width="120" class="mb-2">
+                            <img src="assets/img/wonderful-Indonesia-logo-color-underbase.png" alt="logo" width="120" class="mb-2">
                         </div>
                         
                         <?php require_once __DIR__ . '/components/flash.php' ?>
