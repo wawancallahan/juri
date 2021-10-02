@@ -21,7 +21,7 @@ $penilaianItems = $penilaianModel->index();
 $statusPenilaian = [];
 
 foreach ($penilaianItems as $penilaianItem) {
-    $statusPenilaian[$penilaianItem['user_id']][] = $penilaianItem;
+    $statusPenilaian[$penilaianItem['peserta_id']][$penilaianItem['user_id']][] = $penilaianItem;
 }
 
 ob_start();
@@ -176,14 +176,14 @@ extract([
                                                                             <tr>
                                                                                 <td><?php echo $userItem['nama'] ?></td>
                                                                                 <td>
-                                                                                    <?php if (isset($statusPenilaian[$userItem['id']]) && !empty($statusPenilaian[$userItem['id']])) { ?>
+                                                                                    <?php if (isset($statusPenilaian[$pesertaItem['id']][$userItem['id']]) && !empty($statusPenilaian[$pesertaItem['id']][$userItem['id']])) { ?>
                                                                                         <span class="btn btn-sm btn-primary">Sudah</span>
                                                                                     <?php } else { ?>
                                                                                         <span class="btn btn-sm btn-warning">Belum</span>
                                                                                     <?php } ?>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <?php if (isset($statusPenilaian[$userItem['id']]) && !empty($statusPenilaian[$userItem['id']])) { ?>
+                                                                                    <?php if (isset($statusPenilaian[$pesertaItem['id']][$userItem['id']]) && !empty($statusPenilaian[$pesertaItem['id']][$userItem['id']])) { ?>
                                                                                         <a href="lihat_penilaian_juri.php?user_id=<?php echo $userItem['id'] ?>&peserta_id=<?php echo $pesertaItem['id'] ?>" class="btn btn-info btn-sm">
                                                                                             <i class="fa fa-eye"></i> Lihat
                                                                                         </a>
