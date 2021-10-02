@@ -1,3 +1,13 @@
+<?php
+
+require __DIR__ . '/config/connect.php';
+require __DIR__ . '/config/session.php';
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/middleware/checkAuth.php';
+
+ob_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,3 +121,13 @@
     </script>
 </body>
 </html>
+
+<?php
+
+$view = ob_get_clean();
+
+reset_session_flash();
+
+echo $view;
+
+?>
