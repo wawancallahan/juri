@@ -87,7 +87,7 @@
 
     <script>
         $(function () {
-            var background_url = ["https://www.hipmikaltim.com/image/jembatan.jpg", "https://dpmptsp.kaltimprov.go.id/admin_assets/img/unsplash/login-bg-2.jpg"];
+            var background_url = ["assets/img/bg1.jpg", "assets/img/bg2.jpg", "https://dpmptsp.kaltimprov.go.id/admin_assets/img/unsplash/login-bg-2.jpg"];
             // Background
             $("[data-background]").each(function() {
                 var me = $(this);
