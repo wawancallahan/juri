@@ -156,7 +156,11 @@ extract([
                                     <?php foreach ($sortPesertaNilai as $pesertaId => $pesertaNilai) { ?>
                                         <?php $pesertaSelected = $hasilPesertaItems[$pesertaId]; ?>
                                         <tr>
-                                            <td><?php echo $urutan++ ?></td>
+                                            <td>
+                                                <div class="nilai-peserta-urutan">
+                                                    <?php echo $urutan++ ?>
+                                                </div>
+                                            </td>
                                             <td>
                                                 <div class="nilai-peserta-avatar">
                                                     <?php 
@@ -168,10 +172,13 @@ extract([
                                                     ?>
                                                         <img src="<?php echo $uploadDirectory . $pesertaSelected['foto'] ?>" alt="" class="mb-2">
                                                     <?php } ?>
-                                                    <div class="nilai-peserta-nama"><?php echo $pesertaSelected['nama'] ?></div>
                                                 </div>
                                             </td>
-                                            <td><?php echo $pesertaNilai ?></td>
+                                            <td>
+                                                <div class="nilai-peserta">
+                                                    <?php echo $pesertaNilai ?>
+                                                </div>
+                                            </td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

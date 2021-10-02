@@ -1,17 +1,24 @@
 .image-foto {
-    min-width: 50px;
-    max-width: 150px;
-    min-height: 50px;
-    max-height: 250px;
+    width: 280px;
+    height: 280px;
 }
 
 .nilai-peserta-avatar img {
-    min-width: 50px;
-    max-width: 150px;
-    min-height: 50px;
-    max-height: 250px;
+   width: 280px;
+   height: 280px;
 }
 
 .nilai-peserta-avatar .nilai-peserta-nama {
     color: #212529;
+}
+
+.nilai-peserta-urutan,
+.nilai-peserta {
+    font-size: 40px;
+}
+
+.background-duta {
+    background: url('../img/duta_or.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
 }

@@ -88,19 +88,7 @@ extract([
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-white">Penilaian</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active text-white">Penilaian</li>
-                        </ol>
-                    </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
+               
             </div>
             <!-- /.content-header -->
 
@@ -113,9 +101,9 @@ extract([
                     <?php foreach ($kategoriPesertaItems as $kategoriPesertaItem) { ?>
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><?php echo $kategoriPesertaItem['nama'] ?></div>
+                                <div class="card-title" style="font-size: 25px"><?php echo $kategoriPesertaItem['nama'] ?></div>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body background-duta">
                                 <?php foreach (array_chunk($pesertaItems[$kategoriPesertaItem['id']] ?? [], 3) as $pesertaItemsChunk) { ?>
                                     <div class="row">
                                         <?php foreach ($pesertaItemsChunk as $pesertaItem) { ?>
@@ -131,7 +119,6 @@ extract([
                                                         ?>
                                                             <img src="<?php echo $uploadDirectory . $pesertaItem['foto'] ?>" alt="" class="mb-2">
                                                         <?php } ?>
-                                                        <div class="nilai-peserta-nama"><?php echo $pesertaItem['no_peserta'] ?>. <?php echo $pesertaItem['nama'] ?></div>
                                                     </div>
                                                 </a>
                                             </div>
