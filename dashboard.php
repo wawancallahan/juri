@@ -24,7 +24,7 @@ require __DIR__ . '/middleware/hasAuth.php';
     <link rel="stylesheet" href="assets/css/adminlte.min.css">
     <style>
         body {
-            background: url('assets/img/islamic_center.jpg') no-repeat center center fixed;
+            background: url('assets/img/bg2.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100%;
         }

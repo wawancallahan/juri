@@ -36,7 +36,7 @@ extract([
     <link rel="stylesheet" href="plugins/datepicker/datepicker.css">
     <style>
         body {
-            background: url('assets/img/islamic_center.jpg') no-repeat center center fixed;
+            background: url('assets/img/bg2.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100%;
         }

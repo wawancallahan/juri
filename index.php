@@ -42,9 +42,9 @@ ob_start();
                 <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-black">
                     <div class="p-2 m-1">
                         <div>
-                            <img src="assets/img/wonderful-Indonesia-logo-color-underbase.png" alt="logo" width="120" class="mb-2">
                             <img src="assets/img/samarinda.png" alt="logo" width="120" class="mb-2">
                             <img src="assets/img/logo_duwis_smd.jpg" alt="logo" width="100" class="mb-2 rounded-circle">
+                            <img src="assets/img/wonderful-Indonesia-logo-color-underbase.png" alt="logo" width="120" class="mb-2">
                         </div>
                         
                         <?php require_once __DIR__ . '/components/flash.php' ?>
