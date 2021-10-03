@@ -165,8 +165,8 @@ extract([
                                                 <div class="nilai-peserta-avatar">
                                                     <?php 
                                                         $currentDirectory = getcwd();
-                                                        $uploadDirectory = "/files/";
-                                                        $uploadPath = $currentDirectory . $uploadDirectory . $pesertaSelected['foto']; 
+                                                        $uploadDirectory = "files/";
+                                                        $uploadPath = $currentDirectory . '/' . $uploadDirectory . $pesertaSelected['foto']; 
 
                                                         if (file_exists($uploadPath)) {
                                                     ?>
